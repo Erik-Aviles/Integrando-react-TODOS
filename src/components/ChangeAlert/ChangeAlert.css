@@ -1,0 +1,33 @@
+.change-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1e1e1f50;;
+    z-index: 2;
+}
+
+.messaje-sincronize-container{
+    background-color: rgb(69, 66, 66);
+    position: fixed;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    padding: 5px; 
+    z-index: 2;
+    text-align: center;
+    font-size: 2rem;
+}
+.messaje-sincronize-container p{
+    color: azure;
+}
+.messaje-sincronize-button{
+    background-color: #61DAFA;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border: none;
+    color: azure;
+    cursor: pointer;
+
+}
