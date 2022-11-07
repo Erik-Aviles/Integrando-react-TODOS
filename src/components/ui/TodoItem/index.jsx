@@ -1,6 +1,8 @@
 import React from "react";
 import { Delete } from "../TodoIcons/Delete";
 import { Check } from "../TodoIcons/Check";
+import { Edith } from "../TodoIcons/Edith";
+
 import './TodoItem.css'
 
 export function TodoItem(props){
@@ -19,6 +21,9 @@ export function TodoItem(props){
 
       <Delete
         onDelete={props.onDelete}
+      />
+      <Edith
+        onEdith={props.onEdith}
       />
         
     </li>

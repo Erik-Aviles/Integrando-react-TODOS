@@ -1,7 +1,8 @@
 import React from 'react';
 import { AiOutlineDelete } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
-import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEyeInvisible } from "react-icons/ai"; 
+import { AiFillEdit } from "react-icons/ai"; 
 import './TodoIcons.css'
 
 const iconTypes = {
@@ -13,6 +14,9 @@ const iconTypes = {
   ),
   "delete": color => (
     <AiOutlineDelete className="Icon-svg Icon-svg--delete" fill={color} />
+  ),
+  "edith": color => (
+    <AiFillEdit className="Icon-svg Icon-svg--edith" fill={color} />
   ),
 };
 

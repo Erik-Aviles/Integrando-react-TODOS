@@ -9,7 +9,7 @@ import { useLocalStorage } from "./useLocalStorage";
     sincronize: sincronizeTodos,
     error,
     loading,
-  } = useLocalStorage('TODOS_V1', []);
+  } = useLocalStorage('TODOS_V2', []);
 
   const [searchValue, setSearchValue] = useState('');
   const [openModal, setOpenModal ] = useState(false);
@@ -29,23 +29,28 @@ import { useLocalStorage } from "./useLocalStorage";
     });
   }
 
+ 
+
   const addTodo = text =>{
+    const id = todos.length +1;
     const newTodos = [...todos];
     newTodos.unshift({
       completed: false,
       text,
+      id,
     });
     saveTodos(newTodos);
   };
-  const eliminarTodo = text =>{
-    const todoIndex = todos.findIndex(todo => todo.text === text);
+
+  const eliminarTodo = ( id )=>{
+    const todoIndex = todos.findIndex(todo => todo.id === id);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos)
   };
 
-  const completeTodo = (text) => {
-    const todoIndex = todos.findIndex(todo => todo.text === text);
+  const completeTodo = (id) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
@@ -72,6 +77,9 @@ import { useLocalStorage } from "./useLocalStorage";
     states,
     stateUpdaters,
   }
+
 }
+
+
 
 export {useTodos};

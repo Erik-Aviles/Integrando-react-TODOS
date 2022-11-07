@@ -1,21 +1,22 @@
 import React from "react";
-import { useTodos } from "./useTodos";
-import { TodoHeader } from '../TodoHeader';
-import { TodoCounter } from '../TodoCounter/index';
-import { TodoSearch } from '../TodoSearch/index';
-import { TodoList } from '../TodoList/index';
-import { TodoItem } from '../TodoItem/index';
-import { TodoFormulario } from '../TodoFormulario';
-import { CreateTodoButton } from '../CreateTodoButton/index';
-import { Modal } from '../Modal';
-import { ErrorSkeleton } from '../LoandingSketeton/ErrorSkeleton';
-import { EmptySkeleton } from '../LoandingSketeton/EmptySkeleton';
-import { LoadingSearchResult } from "../LoadingSearchResult";
-import { LoadingSkeleton } from '../LoandingSketeton/LoadingSkeleton';
-import { ChangeAlert }  from "../ChangeAlert";
+import { useTodos } from "../useTodos";
+import { TodoHeader } from '../../ui/TodoHeader';
+import { TodoCounter } from '../../ui/TodoCounter';
+import { TodoSearch } from '../../ui/TodoSearch';
+import { TodoList } from '../../ui/TodoList';
+import { TodoItem } from '../../ui/TodoItem';
+import { TodoFormulario } from '../../ui/TodoFormulario';
+import { CreateTodoButton } from '../../ui/CreateTodoButton';
+import { Modal } from '../../ui/Modal';
+import { ErrorSkeleton } from '../../ui/LoandingSketeton/ErrorSkeleton';
+import { EmptySkeleton } from '../../ui/LoandingSketeton/EmptySkeleton';
+import { LoadingSearchResult } from "../../ui/LoadingSearchResult";
+import { LoadingSkeleton } from '../../ui/LoandingSketeton/LoadingSkeleton';
+import { ChangeAlert }  from "../../ui/ChangeAlert";
+import { Link } from "react-router-dom";
 
 
-function App() {
+function HomePage() {
   
   const {states, stateUpdaters} = useTodos();
 
@@ -65,11 +66,12 @@ function App() {
         onEmptyTodos={() => <EmptySkeleton />}
         render={todo => ( 
           <TodoItem 
-            key={todo.text}
+            key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => eliminarTodo(todo.text)}
+            onComplete={() => completeTodo(todo.id)}
+            onDelete={() => eliminarTodo(todo.id)}
+            onEdith={() => {<Link to={'/edith:id'} />}}
           />
         )}
         >
@@ -104,5 +106,5 @@ function App() {
   );
 }
 
-export default App;
+export { HomePage };
 
