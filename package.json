@@ -1,5 +1,5 @@
 {
-  "name": "integrando-router",
+  "name": "integrando-react-todos",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -47,12 +47,6 @@
   "devDependencies": {
     "gh-pages": "^4.0.0"
   },
-  "homepage": "https://IngEka.github.io/integrando-router",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IngEka/integrando-router.git"
-  },
-  "bugs": {
-    "url": "https://github.com/IngEka/integrando-router/issues"
-  }
+  "homepage": "https://IngEka.github.io/integrando-react-todos"
+ 
 }
