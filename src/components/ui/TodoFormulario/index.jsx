@@ -1,37 +1,46 @@
 import React from 'react';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+
 import '../TodoFormulario/TodoForm.css'
 
-export const TodoFormulario = ({totalTodos, addTodo, setOpenModal}) => {
+export const TodoFormulario = (props) => {
   const [newTodoValue, setNewTodoValue] = useState('');
+  const [alert, setAlert] = useState(false);
+  const navegate = useNavigate()
 
     const onChange = (event) => {
       setNewTodoValue(event.target.value)
     }
     const onCancelar = () => {
-      setOpenModal(false);
+      navegate('/');
     }
     
     const onSubmit = (event) => {
       event.preventDefault();
       if (newTodoValue === '') {
-        alert('Debes escribir una tarea');
+        setTimeout(()=>{
+          setAlert(false);
+        }, 3000);
+        setAlert(true);
       } else {
-        addTodo(newTodoValue);
-        alert('Bien!... tarea añadida');
-        setOpenModal(false);
+        setAlert(false);
+        props.submitEvent(newTodoValue);
+        navegate('/')
+        
       }   
     }
 
   return (
     <form onSubmit={onSubmit}>
-      <label>New task</label>
+      <h3>{props.submitTitle}</h3>
+      {alert && (<p>Espacio vacio</p>)}
       <textarea 
         value={newTodoValue}
         onChange={onChange}
         type='text' 
         placeholder='Escribe la tarea'/>
-      <p>Task # {totalTodos + 1}</p>
+      <p>Task # {props.numberTarea}</p>
       <div className='TodoForm-buttonContainer'>
         <button
           type='button'
@@ -45,7 +54,7 @@ export const TodoFormulario = ({totalTodos, addTodo, setOpenModal}) => {
           className="TodoForm-button TodoForm-button--add"
           type='submit'
           >
-            Añadir
+            {props.submitText}
         </button>
       </div>
     </form>

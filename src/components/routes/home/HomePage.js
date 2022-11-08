@@ -1,24 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useTodos } from "../useTodos";
 import { TodoHeader } from '../../ui/TodoHeader';
 import { TodoCounter } from '../../ui/TodoCounter';
 import { TodoSearch } from '../../ui/TodoSearch';
 import { TodoList } from '../../ui/TodoList';
 import { TodoItem } from '../../ui/TodoItem';
-import { TodoFormulario } from '../../ui/TodoFormulario';
 import { CreateTodoButton } from '../../ui/CreateTodoButton';
-import { Modal } from '../../ui/Modal';
 import { ErrorSkeleton } from '../../ui/LoandingSketeton/ErrorSkeleton';
 import { EmptySkeleton } from '../../ui/LoandingSketeton/EmptySkeleton';
 import { LoadingSearchResult } from "../../ui/LoadingSearchResult";
 import { LoadingSkeleton } from '../../ui/LoandingSketeton/LoadingSkeleton';
 import { ChangeAlert }  from "../../ui/ChangeAlert";
-import { Link } from "react-router-dom";
 
 
 function HomePage() {
   
   const {states, stateUpdaters} = useTodos();
+  const navigate = useNavigate();
 
   const {
     error,
@@ -26,14 +25,11 @@ function HomePage() {
     searchedTodos,
     totalTodos, 
     completedTodos, 
-    openModal, 
     searchValue,
   } = states;
   
   const {
     completeTodo,
-    setOpenModal,
-    addTodo,
     eliminarTodo,
     setSearchValue,
     sincronizeTodos,
@@ -71,7 +67,7 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => eliminarTodo(todo.id)}
-            onEdith={() => {<Link to={'/edith:id'} />}}
+            onEdith={() => navigate(`/edith/${todo.id}`) }
           />
         )}
         >
@@ -86,19 +82,9 @@ function HomePage() {
         )} */}
 
       </TodoList>
-
-      {!!openModal && (
-        <Modal>
-          <TodoFormulario  
-            totalTodos={totalTodos}
-            addTodo={addTodo}
-            setOpenModal={setOpenModal}
-          />
-        </Modal>
-      )}
-      
+   
       <CreateTodoButton 
-        setOpenModal={setOpenModal} 
+        onClick= {() => navigate('/new')}
       />
       <ChangeAlert 
         sincronize={sincronizeTodos} />
