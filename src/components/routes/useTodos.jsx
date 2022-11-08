@@ -28,8 +28,6 @@ import { useLocalStorage } from "./useLocalStorage";
     });
   }
 
- 
-
   const addTodo = text =>{
     const id = todos.length +1;
     const newTodos = [...todos];
@@ -47,6 +45,12 @@ import { useLocalStorage } from "./useLocalStorage";
     newTodos[todoIndex].text = newText;
     saveTodos(newTodos)
   };
+
+  const getTodo = ( id ) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    return todos[todoIndex];
+  };
+
   const eliminarTodo = ( id )=>{
     const todoIndex = todos.findIndex(todo => todo.id === id);
     const newTodos = [...todos];
@@ -69,6 +73,7 @@ import { useLocalStorage } from "./useLocalStorage";
     searchValue, 
     searchedTodos,
     completedTodos,
+    getTodo,
   }
  const stateUpdaters = {
     completeTodo,

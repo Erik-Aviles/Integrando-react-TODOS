@@ -67,7 +67,14 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.id)}
             onDelete={() => eliminarTodo(todo.id)}
-            onEdith={() => navigate(`/edith/${todo.id}`) }
+            onEdith={() => {
+              navigate(
+                `/edith/${todo.id}`,
+                {
+                  states: { todo }
+                }
+              ) 
+            }}
           />
         )}
         >

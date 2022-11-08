@@ -47,12 +47,12 @@
   "devDependencies": {
     "gh-pages": "^4.0.0"
   },
-  "homepage": "https://IngEka.github.io/curso_intro_react",
+  "homepage": "https://IngEka.github.io/integrando-router",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IngEka/curso_intro_react.git"
+    "url": "git+https://github.com/IngEka/integrando-router.git"
   },
   "bugs": {
-    "url": "https://github.com/IngEka/curso_intro_react/issues"
+    "url": "https://github.com/IngEka/integrando-router/issues"
   }
 }

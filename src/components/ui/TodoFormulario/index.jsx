@@ -5,7 +5,7 @@ import { useState } from 'react'
 import '../TodoFormulario/TodoForm.css'
 
 export const TodoFormulario = (props) => {
-  const [newTodoValue, setNewTodoValue] = useState('');
+  const [newTodoValue, setNewTodoValue] = useState(props.submitTextArea || '');
   const [alert, setAlert] = useState(false);
   const navegate = useNavigate()
 
