@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/integrando-router/static/css/main.2310a108.css",
+    "main.js": "/integrando-router/static/js/main.2d19a725.js",
+    "static/media/Not-found.jpg": "/integrando-router/static/media/Not-found.beee6882c101a511265b.jpg",
+    "index.html": "/integrando-router/index.html",
+    "main.2310a108.css.map": "/integrando-router/static/css/main.2310a108.css.map",
+    "main.2d19a725.js.map": "/integrando-router/static/js/main.2d19a725.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2310a108.css",
+    "static/js/main.2d19a725.js"
+  ]
+}
