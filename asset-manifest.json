@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/integrando-react-todos/static/css/main.2310a108.css",
-    "main.js": "/integrando-react-todos/static/js/main.0577e18f.js",
-    "static/media/Not-found.jpg": "/integrando-react-todos/static/media/Not-found.beee6882c101a511265b.jpg",
-    "index.html": "/integrando-react-todos/index.html",
-    "main.2310a108.css.map": "/integrando-react-todos/static/css/main.2310a108.css.map",
-    "main.0577e18f.js.map": "/integrando-react-todos/static/js/main.0577e18f.js.map"
+    "main.css": "/Integrando-react-TODOS/static/css/main.2310a108.css",
+    "main.js": "/Integrando-react-TODOS/static/js/main.250837e6.js",
+    "static/media/Not-found.jpg": "/Integrando-react-TODOS/static/media/Not-found.beee6882c101a511265b.jpg",
+    "index.html": "/Integrando-react-TODOS/index.html",
+    "main.2310a108.css.map": "/Integrando-react-TODOS/static/css/main.2310a108.css.map",
+    "main.250837e6.js.map": "/Integrando-react-TODOS/static/js/main.250837e6.js.map"
   },
   "entrypoints": [
     "static/css/main.2310a108.css",
-    "static/js/main.0577e18f.js"
+    "static/js/main.250837e6.js"
   ]
 }
