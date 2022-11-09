@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Integrando-react-TODOS/static/css/main.2310a108.css",
-    "main.js": "/Integrando-react-TODOS/static/js/main.250837e6.js",
+    "main.js": "/Integrando-react-TODOS/static/js/main.fdd95b62.js",
     "static/media/Not-found.jpg": "/Integrando-react-TODOS/static/media/Not-found.beee6882c101a511265b.jpg",
     "index.html": "/Integrando-react-TODOS/index.html",
     "main.2310a108.css.map": "/Integrando-react-TODOS/static/css/main.2310a108.css.map",
-    "main.250837e6.js.map": "/Integrando-react-TODOS/static/js/main.250837e6.js.map"
+    "main.fdd95b62.js.map": "/Integrando-react-TODOS/static/js/main.fdd95b62.js.map"
   },
   "entrypoints": [
     "static/css/main.2310a108.css",
-    "static/js/main.250837e6.js"
+    "static/js/main.fdd95b62.js"
   ]
 }
