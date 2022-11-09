@@ -47,6 +47,14 @@
   "devDependencies": {
     "gh-pages": "^4.0.0"
   },
-  "homepage": "https://IngEka.github.io/integrando-react-todos"
+  "homepage": "https://IngEka.github.io/Integrando-react-TODOS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IngEka/Integrando-react-TODOS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IngEka/Integrando-react-TODOS/issues"
+  }
+
  
 }
