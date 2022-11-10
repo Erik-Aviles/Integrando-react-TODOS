@@ -5,10 +5,13 @@ import { Edith } from "../TodoIcons/Edith";
 
 import './TodoItem.css'
 
+
 export function TodoItem(props){
 
   return(
+   
     <li className="TodoItem">
+     
       <Check
         completed= {props.completed} 
         onComplete={props.onComplete}
@@ -26,6 +29,8 @@ export function TodoItem(props){
         onEdith={props.onEdith}
       />
         
+      
     </li>
+
   );
 }

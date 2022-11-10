@@ -6,14 +6,15 @@ import { ErrorSkeleton } from '../../ui/LoandingSketeton/ErrorSkeleton';
 import { LoadingSkeleton } from '../../ui/LoandingSketeton/LoadingSkeleton';
 import { EmptySkeleton } from '../../ui/LoandingSketeton/EmptySkeleton';
 import { TodoItem } from '../../ui/TodoItem';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const SearchPage = () => {
-  const navigate = useNavigate
-
   const {states, stateUpdaters} = useTodos();
   const { error, loading, searchedTodos, searchValue, totalTodos} = states;
   const {eliminarTodo, completeTodo, setSearchValue} = stateUpdaters;
+  const navigate = useNavigate();
+
+  
   return (
     <>
       <TodoSearch
@@ -22,6 +23,7 @@ const SearchPage = () => {
         setSearchValue={setSearchValue}
         onEmptySearchResult= {(searchValue) => <LoadingSearchResult searchValue={searchValue}/>}
       />
+
       { searchValue && <TodoList
         error={error}
         loading={loading}
@@ -31,7 +33,8 @@ const SearchPage = () => {
         onError={() => <ErrorSkeleton />}
         onLoading= {() => <LoadingSkeleton />}
         onEmptyTodos={() => <EmptySkeleton />}
-        render={todo => ( 
+        render={todo => (
+          
           <TodoItem 
             key={todo.id}
             text={todo.text}
@@ -47,10 +50,11 @@ const SearchPage = () => {
               ) 
             }}
           />
-        )}
+  )}
       >
 
-      </TodoList>}
+      </TodoList> }
+
     </>
 
   );

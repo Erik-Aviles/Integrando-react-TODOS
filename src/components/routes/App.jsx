@@ -5,6 +5,7 @@ import { EdithPage } from "./edith/EdithPage";
 import { HomePage } from "./home/HomePage";
 import { NewPage } from "./new/NewPage";
 import { NotFound } from "./notFound/NotFound";
+import { TodoList } from "../ui/TodoList";
 
 function App() {
 
@@ -12,7 +13,9 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
-        <Route path="/search" element={<SearchPage/>}/>
+        <Route path="/search" element={<SearchPage/>}>
+          <Route path=":text" element={<TodoList/> }/>
+        </Route>
         
         <Route path="/new" element={<NewPage/>}/>
         <Route path="/edith/:id" element={<EdithPage/>}/>
