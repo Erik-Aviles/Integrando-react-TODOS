@@ -1,17 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useTodos } from "../useTodos";
 import { TodoHeader } from '../../ui/TodoHeader';
 import { TodoCounter } from '../../ui/TodoCounter';
-import { TodoSearch } from '../../ui/TodoSearch';
 import { TodoList } from '../../ui/TodoList';
 import { TodoItem } from '../../ui/TodoItem';
 import { CreateTodoButton } from '../../ui/CreateTodoButton';
 import { ErrorSkeleton } from '../../ui/LoandingSketeton/ErrorSkeleton';
 import { EmptySkeleton } from '../../ui/LoandingSketeton/EmptySkeleton';
-import { LoadingSearchResult } from "../../ui/LoadingSearchResult";
 import { LoadingSkeleton } from '../../ui/LoandingSketeton/LoadingSkeleton';
 import { ChangeAlert }  from "../../ui/ChangeAlert";
+import { InputSearch } from "../../ui/InputSearch";
+
 
 
 function HomePage() {
@@ -20,9 +20,9 @@ function HomePage() {
   const navigate = useNavigate();
 
   const {
+    searchedTodos,
     error,
     loading,
-    searchedTodos,
     totalTodos, 
     completedTodos, 
     searchValue,
@@ -31,7 +31,6 @@ function HomePage() {
   const {
     completeTodo,
     eliminarTodo,
-    setSearchValue,
     sincronizeTodos,
   } = stateUpdaters;
 
@@ -39,15 +38,16 @@ function HomePage() {
   
   return (
     <React.Fragment>
-      <TodoHeader loading={loading}>
+      <TodoHeader  loading={loading}>
+        
+        <InputSearch 
+          onClick= {() => navigate('/search')}
+        />
+
         <TodoCounter 
           totalTodos={totalTodos} 
           completedTodos={completedTodos}
         />
-        <TodoSearch 
-          searchValue={searchValue} 
-          setSearchValue={setSearchValue}
-        />  
       </TodoHeader>
 
       <TodoList
@@ -58,7 +58,6 @@ function HomePage() {
         totalTodos={totalTodos}
         onError={() => <ErrorSkeleton />}
         onLoading= {() => <LoadingSkeleton />}
-        onEmptySearchResult= {(searchValue) => <LoadingSearchResult searchValue={searchValue}/>}
         onEmptyTodos={() => <EmptySkeleton />}
         render={todo => ( 
           <TodoItem 

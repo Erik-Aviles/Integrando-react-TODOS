@@ -36,3 +36,8 @@
   .Icon-container:hover .Icon-svg--edith {
     fill: blue;
   }
+  .Icon-svg--lupa {
+    fill: #61DAFA;
+    width: 30px;
+    height:30px;
+  }
