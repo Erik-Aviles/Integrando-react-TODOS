@@ -1,3 +1,7 @@
+.Main-conteiner{
+  width: 60%;
+  margin: 0 auto;
+}
 .TodoSearch{
   width: 385.8px;
   height: 40px;
@@ -18,7 +22,7 @@
 }
 
 .TodoSearch:focus{
-  outline-color: #61DAFA;
+  outline-color: red;
 }
 .TodoSearch:disabled {
   opacity: 25%;

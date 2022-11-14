@@ -2,60 +2,48 @@ import { useTodos } from '../useTodos';
 import { LoadingSearchResult } from '../../ui/LoadingSearchResult';
 import { TodoSearch } from '../../ui/TodoSearch';
 import { TodoList } from '../../ui/TodoList';
-import { ErrorSkeleton } from '../../ui/LoandingSketeton/ErrorSkeleton';
-import { LoadingSkeleton } from '../../ui/LoandingSketeton/LoadingSkeleton';
-import { EmptySkeleton } from '../../ui/LoandingSketeton/EmptySkeleton';
-import { TodoItem } from '../../ui/TodoItem';
-import { useNavigate} from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Search } from '../../ui/TodoIcons/Search';
+import './SearchPage.css'
 
 const SearchPage = () => {
-  const {states, stateUpdaters} = useTodos();
-  const { error, loading, searchedTodos, searchValue, totalTodos} = states;
-  const {eliminarTodo, completeTodo, setSearchValue} = stateUpdaters;
-  const navigate = useNavigate();
-
   
+
+
+  const {states, stateUpdaters } = useTodos();
+  const {error, totalTodos, loading , searchedTodos, searchValue } = states;
+  const {setSearchValue, completeTodo, eliminarTodo } = stateUpdaters;
+
+ 
+
   return (
-    <>
+    <div className='Main-conteiner'>
       <TodoSearch
-        loading = {loading}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        onEmptySearchResult= {(searchValue) => <LoadingSearchResult searchValue={searchValue}/>}
-      />
+          loading = {loading}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
 
-      { searchValue && <TodoList
-        error={error}
-        loading={loading}
-        searchedTodos={searchedTodos}
-        searchValue={searchValue}
-        totalTodos={totalTodos}
-        onError={() => <ErrorSkeleton />}
-        onLoading= {() => <LoadingSkeleton />}
-        onEmptyTodos={() => <EmptySkeleton />}
-        render={todo => (
-          
-          <TodoItem 
-            key={todo.id}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.id)}
-            onDelete={() => eliminarTodo(todo.id)}
-            onEdith={() => {
-              navigate(
-                `/edith/${todo.id}`,
-                 {
-                  states: { todo }
-                } 
-              ) 
-            }}
           />
-  )}
-      >
+   
+      <div style={{display: 'flex', alignItems: 'center'}}>
+      <Search /> <h2>Buscar</h2>
+      </div>
+      {searchValue && LoadingSearchResult({searchValue})} 
+    
+      {searchValue && 
+        <TodoList
+          error={error}
+          loading={loading}
+          searchedTodos={searchedTodos}
+          searchValue={searchValue}
+          totalTodos={totalTodos}
+          completeTodo= {completeTodo}
+          eliminarTodo= {eliminarTodo}
+        />
+      }
+ 
 
-      </TodoList> }
-
-    </>
+    </div>
 
   );
 }

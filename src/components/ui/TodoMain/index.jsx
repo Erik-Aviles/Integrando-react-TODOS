@@ -1,15 +1,16 @@
 import React from 'react';
+import './TodoMain.css'
 
-const TodoHeader = ({children, loading}) => {
+const TodoMain = ({children, loading}) => {
   return (
-    <header>
+    <main className='Main-conteiner'>
       {
         React.Children
           .toArray(children)
           .map(child => React.cloneElement(child, {loading}))
       }
-    </header>
+    </main>
   );
 }
 
-export { TodoHeader };
+export { TodoMain };

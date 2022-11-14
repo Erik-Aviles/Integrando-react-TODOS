@@ -3,12 +3,14 @@ import '../../routes/search/SearchPage.css';
 
 function InputSearch({onClick}){
   return (
-    
-    <input 
+
+     <input 
       className='TodoSearch'
       placeholder="Búsqueda de tarea"
       onClick={onClick}
+      private={true}
     />
+  
   );
 }
   

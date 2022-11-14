@@ -1,0 +1,8 @@
+.content-menu{
+    width: 100%;
+}
+.Menu{ 
+    display: flex;
+    justify-content: space-around;
+}
+

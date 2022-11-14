@@ -5,21 +5,25 @@ import { EdithPage } from "./edith/EdithPage";
 import { HomePage } from "./home/HomePage";
 import { NewPage } from "./new/NewPage";
 import { NotFound } from "./notFound/NotFound";
-import { TodoList } from "../ui/TodoList";
+import { TodoPage } from "./todo/TodoPage";
+import { Menu } from "../ui/Menu";
 
 function App() {
 
+
   return (
     <HashRouter>
+      <Menu />
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/search" element={<SearchPage/>}>
-          <Route path=":text" element={<TodoList/> }/>
+        <Route path="/" element={<HomePage/>}>
+          <Route path="/todo" element={<TodoPage/>}/>
         </Route>
+        
+        <Route path="/search" element={<SearchPage/>}/>
+        <Route path="/search/:slug" element={<TodoPage/>}/>
         
         <Route path="/new" element={<NewPage/>}/>
         <Route path="/edith/:id" element={<EdithPage/>}/>
-        
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </HashRouter>
